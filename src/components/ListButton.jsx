@@ -1,26 +1,25 @@
-import Card from "./card";
+import { useState } from "react";
+import axios, {isCancel, AxiosError} from 'axios';
 
-const ListButton = () => {
+const ListButton = ({ children }) => {
+    const [state, setState] = useState([]);
+    const handleFetchDataList = () => {
+        fetchList().then((data) => {
+            setState(data)
+        })
+    }
+
     return (
-        <button className="btn listbtn" onClick={fetchList}>See List</button>
+        <>
+        <button className="btn listbtn" onClick={handleFetchDataList}>See List</button>
+        {children(state)}
+        </>
+        
     )
 }
 
 function fetchList() {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-        .then((response) => response.json())
-        .then((json) => {
-            const box = document.getElementById("cardbox");
-            const list = json.map((item) => {
-                let i = 0;
-                const currentCard = <Card title={item.title} body={item.body} id={item.id} userid={item.userId} cardid={"card" + i} btnid={"button" + i}/>
-                i++;
-                return currentCard;
-            })
-            list.forEach(element => {
-                box.appendChild(element);
-            });
-        });
+    return axios("https://jsonplaceholder.typicode.com/posts");
 }
 
 export default ListButton;
