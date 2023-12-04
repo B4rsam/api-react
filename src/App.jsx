@@ -5,7 +5,7 @@ import './index.css'
 function App() {
   return (
     <>
-      <ListButton>{(data, onDelete) => <div className="grid grid-cols-3">{data.map(item => <Card key={item.id} cardData={item} onDelete={onDelete}/>)}</div>}</ListButton>
+      <ListButton>{(data, onDelete) => <div className="grid gap-1 grid-cols-3 m-2">{data.map(item => <Card key={item.id} cardData={item} onDelete={onDelete}/>)}</div>}</ListButton>
       <div className='cardbox'></div>
     </>
   )

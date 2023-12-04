@@ -1,6 +1,6 @@
 const Card = ({cardData, onDelete}) => {
     return (
-        <div className="block flex-1 w-25 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" id={cardData.cardid}>
+        <div className="block my-1 flex-1 w-25 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" id={cardData.cardid}>
             <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{cardData.title}</h4>
             <p className="font-normal text-gray-700 dark:text-gray-400">{cardData.body}</p>
             <div className="idbox">
